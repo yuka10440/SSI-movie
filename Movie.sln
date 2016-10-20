@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.CSharp", "Movie.CSharp.csproj", "{619A1B48-F8A9-597D-80C0-A8E266D27CE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.CSharp.Editor", "Movie.CSharp.Editor.csproj", "{7056A72D-F7B9-675B-C3CA-C88028C358E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{619A1B48-F8A9-597D-80C0-A8E266D27CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{619A1B48-F8A9-597D-80C0-A8E266D27CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{619A1B48-F8A9-597D-80C0-A8E266D27CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{619A1B48-F8A9-597D-80C0-A8E266D27CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7056A72D-F7B9-675B-C3CA-C88028C358E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7056A72D-F7B9-675B-C3CA-C88028C358E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7056A72D-F7B9-675B-C3CA-C88028C358E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7056A72D-F7B9-675B-C3CA-C88028C358E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
