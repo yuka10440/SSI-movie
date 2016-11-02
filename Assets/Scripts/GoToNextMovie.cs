@@ -2,12 +2,15 @@
 using System.Collections;
 using Leap;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GoToNextMovie : MonoBehaviour
 {
     public Text label;  // 表示用ラベル
 
     private Controller controller = new Controller();
+
+    int scene_num;
 
     // Use this for initialization
     void Start()
@@ -17,6 +20,8 @@ public class GoToNextMovie : MonoBehaviour
         //controller.EnableGesture(Gesture.GestureType.TYPEKEYTAP);
         //controller.EnableGesture(Gesture.GestureType.TYPESCREENTAP);
         controller.EnableGesture(Gesture.GestureType.TYPE_SWIPE);
+        Scene scene = SceneManager.GetActiveScene();
+        scene_num = scene.buildIndex;
     }
 
     // Update is called once per frame
@@ -39,28 +44,51 @@ public class GoToNextMovie : MonoBehaviour
                 Gesture gesture = gestures[i];
                 switch (gesture.Type)
                 {
-                    //case Gesture.GestureType.TYPECIRCLE:
-                    //    var circleGesture = new CircleGesture(gesture);
-                    //    printGesture("Circle");
-                    //    break;
-                    //case Gesture.GestureType.TYPEKEYTAP:
-                    //    var keytapGesture = new KeyTapGesture(gesture);
-                    //    printGesture("KeyTap");
-                    //    break;
-                    //case Gesture.GestureType.TYPESCREENTAP:
-                    //    var screentapGesture = new ScreenTapGesture(gesture);
-                    //    controller.Config.SetFloat("Gesture.ScreenTap.MinForwardVelocity", 30.0f);
-                    //    controller.Config.SetFloat("Gesture.ScreenTap.HistorySeconds", 0.5f);
-                    //    controller.Config.SetFloat("Gesture.ScreenTap.MinDistance", 1.0f);
-                    //    controller.Config.Save();
-                    //    printGesture("ScreenTap");
-                    //    break;
                     case Gesture.GestureType.TYPE_SWIPE:
                         var swipeGesture = new SwipeGesture(gesture);
+
                         controller.Config.SetFloat("Gesture.Swipe.MinLength", 200.0f);
                         controller.Config.SetFloat("Gesture.Swipe.MinVelocity", 750f);
                         controller.Config.Save();
-                        printGesture("Swipe");
+                        //printGesture("Swipe");
+
+                        for (int j = 0; j <= scene_num; j++)
+                        {
+                            // 左から右にスワイプしたとき
+                            if (swipeGesture.State == Gesture.GestureState.STATE_START
+                                && swipeGesture.Direction.x > 0
+                                && Mathf.Abs(swipeGesture.Direction.y) < 5)
+                            {
+
+                                SceneManager.LoadScene(j + 1);
+                                if (j == 2)
+                                {
+                                    SceneManager.LoadScene(0);
+                                }
+                            }
+
+                        }
+
+                        // 右から左にスワイプしたとき
+                        //if (swipeGesture.State == Gesture.GestureState.STATE_START
+                        //    && swipeGesture.Direction.y > -5
+                        //    && Mathf.Abs(swipeGesture.Direction.z) < 0)
+                        //{
+                        //    switch (scene_num)
+                        //    {
+                        //        case 0:
+                        //            SceneManager.LoadScene(2);
+                        //            break;
+                        //        case 1:
+                        //            SceneManager.LoadScene(0);
+                        //            break;
+                        //        case 2:
+                        //            SceneManager.LoadScene(1);
+                        //            break;
+                        //        default:
+                        //            break;
+                        //    }
+                        //}
                         break;
                     default:
                         break;
