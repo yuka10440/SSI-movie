@@ -111,6 +111,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Movie.CSharp.Plugins.csproj">
+      <Project>{130B357D-A36F-3E53-44BA-CBDF71BECBC7}</Project>
+      <Name>Movie.CSharp.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="Movie.CSharp.csproj">
       <Project>{619A1B48-F8A9-597D-80C0-A8E266D27CE3}</Project>
       <Name>Movie.CSharp</Name>
@@ -123,6 +127,7 @@
     <Compile Include="Assets\OVR\Editor\OVRGameView.cs" />
     <Compile Include="Assets\OVR\Editor\OVRPrefabs.cs" />
     <Compile Include="Assets\OVR\Editor\OVRShimLoader.cs" />
+    <Compile Include="Assets\Pixelplacement\iTweenPath\Editor\iTweenPathEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\LeapMotion\DemoResources\ScrollerText.txt" />

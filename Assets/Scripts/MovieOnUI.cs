@@ -15,6 +15,8 @@ public class MovieOnUI : MonoBehaviour
     RawImage m_rawImage = null;
     AudioSource m_audioSource = null;
 
+    Button button;
+
     public bool IsPlaying
     {
         get { return m_movieTexture != null && m_movieTexture.isPlaying; }
@@ -25,6 +27,8 @@ public class MovieOnUI : MonoBehaviour
         if (IsPlaying)
         {
             Stop();
+            //MyCanvas.SetActive("BackButton", true);
+            //button.enabled = true;
         }
 
         m_movieTexture = (MovieTexture)Resources.Load<MovieTexture>(m_moviePath);
@@ -60,7 +64,9 @@ public class MovieOnUI : MonoBehaviour
     {
         m_rawImage = this.GetComponent<RawImage>();
         m_audioSource = this.GetComponent<AudioSource>();
-
+        //button = GameObject.Find("BackButton").GetComponent<Button>();
+        //button.enabled = false;
+   
         Play(); //テスト用
     }
 
